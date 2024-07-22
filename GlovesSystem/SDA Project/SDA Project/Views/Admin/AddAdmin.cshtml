@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "AddAdmin";
+}
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("AddAdmin", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container tm-mt-big tm-mb-big">
+        <div class="row">
+            <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto d-flex align-items-center justify-content-center flex-column">
+                    <h2 class="tm-block-title">Account Settings</h2>
+                    <form action="" class="tm-signup-form row">
+                        <div class="form-group col-lg-6">
+                            <label for="name">Account Name</label>
+                            <input id="name"
+                                   name="adminName"
+                                   type="text"
+                                   class="form-control validate" />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="email">Account Email</label>
+                            <input id="email"
+                                   name="loginEmail"
+                                   type="email"
+                                   class="form-control validate" />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="password">Password</label>
+                            <input id="password"
+                                   name="adminPassword"
+                                   type="password"
+                                   class="form-control validate" />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="password2">Re-enter Password</label>
+                            <input id="password2"
+                                   name="adminPassword2"
+                                   type="password"
+                                   class="form-control validate" />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="phone">Phone</label>
+                            <input id="phone"
+                                   name="adminPhone"
+                                   type="tel"
+                                   class="form-control validate" />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="tm-hide-sm">&nbsp;</label>
+                            <a href="@Url.Action("AllAdmins","Admin")"
+                               class="btn btn-primary btn-block text-uppercase w-100 mb-3">
+                                Show All Admins
+                            </a>
+                            <button type="submit"
+                                    class="btn btn-primary btn-block text-uppercase w-100">
+                                Create New Account
+                            </button>
+                        </div>
+                        @*<div class="col-12">
+                            
+                        </div>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

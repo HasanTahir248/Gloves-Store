@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "AddCategories";
+}
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("AddCategories", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container tm-mt-big tm-mb-big">
+        <div class="row">
+            <div class="col-12 mx-auto tm-login-col">
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h2 class="tm-block-title mb-4">Category Portal</h2>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <form action="index.html" method="post" class="tm-login-form">
+                                <div class="form-group">
+                                    <label for="username">Category Name</label>
+                                    <input name="CategoryName"
+                                           type="text"
+                                           class="form-control validate"
+                                           id="username"
+                                           value=""
+                                           required />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control validate" name="CategoryDescription"
+                                              rows="3"
+                                              required></textarea>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <input type="file" class="form-control" name="CategoryFile" required/>
+                                </div>
+                                <div class="form-group mt-4 w-100">
+                                    <button type="submit"
+                                            class="btn btn-primary btn-block text-uppercase w-100">
+                                        Add Category
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

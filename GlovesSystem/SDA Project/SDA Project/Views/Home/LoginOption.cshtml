@@ -1,0 +1,18 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/SignInOption.cshtml";
+    ViewBag.Title = "LogininOption";
+}
+<div class="container">
+    <p>Customer Login</p>
+
+    <button type="button"><a href="@Url.Action("SignIn", "Home")"><h1>🧑‍💼</h1>Login as Customer</a></button>
+
+</div>
+
+<div class="container container--inverted">
+    <p>Admin Login</p>
+
+    <button type="button"><a href="@Url.Action("AdminLogin","Home")"><h1>🧑‍💼</h1>Login as Admin</a></button>
+
+</div>
+

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Shipping";
+}
+
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("Shipping", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Shipping section -->
+    <section>
+        <div class="container01">
+
+            <div class="heading_container">
+                <h2>
+                    Shipping Address
+                </h2>
+            </div>
+            <p>Please enter your shipping details.</p>
+            <div class="form01">
+
+                <div class="fields fields--2">
+                    <label class="field">
+                        <span class="field__label" for="firstname">First name</span>
+                        <input class="field__input" type="text" name="FirstName" />
+                    </label>
+                    <label class="field">
+                        <span class="field__label" for="lastname">Last name</span>
+                        <input class="field__input" type="text"  name="LastName"/>
+                    </label>
+                </div>
+                <label class="field">
+                    <span class="field__label" for="address">Address</span>
+                    <input class="field__input" type="text" name="ShippingAddress"/>
+                </label>
+                <label class="field">
+                    <span class="field__label" for="country">Country</span>
+                    <input class="field__input" type="text" name="Country"/>
+                </label>
+                <div class="fields fields--3">
+                    <label class="field">
+                        <span class="field__label" for="zipcode">Zip code</span>
+                        <input class="field__input" type="text" name="ZipCode"/>
+                    </label>
+                    <label class="field">
+                        <span class="field__label" for="city">City</span>
+                        <input class="field__input" type="text" name="City" />
+                    </label>
+                    <label class="field">
+                        <span class="field__label" for="state">State</span>
+                        <input class="field__input" type="text" name="State"/>
+                    </label>
+                </div>
+                <div class="fields fields--2">
+                    <label class="field">
+                        <span class="field__label" for="email">Email</span>
+                        <input class="field__input" type="text" name="Email" />
+                    </label>
+                    <label class="field">
+                        <span class="field__label" for="contact_no">Contact Number</span>
+                        <input class="field__input" type="text" name="PhoneNumber" />
+                    </label>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" class="btn">Continue</button>
+            @*<a class="btn" href="@Url.Action("Payment","Home")">Continue </a>*@
+        </div>
+    </section>
+}

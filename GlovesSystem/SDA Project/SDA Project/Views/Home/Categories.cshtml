@@ -1,0 +1,131 @@
+﻿@model List<SDA_Project.Models.Categories>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section-products-c">
+    <div class="container-c">
+        <div class="list-products-c">
+            @if (Model != null)
+            {
+                foreach (var a in Model)
+                {
+                    <a href="@Url.Action("Products", "Home", new { id = a.CategoryID })" class="product-link">
+                        <div class="product-c">
+                            <div class="top-c">
+                                <img src="@Url.Content("~/Images/" + a.CategoryImage)" alt="product" class="img-product-c">
+                            </div>
+                            <div class="bottom-c">
+                                <h3 class="product-name-c">@a.CategoryName</h3>
+                                <h4 class="product-price-c">@a.CategoryDescription</h4>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<style type="text/css">
+    @*@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap");*@
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .section-products-c {
+        height: 100vh;
+        padding: 50px 0;
+        overflow: hidden;
+    }
+    .section-products-c .container-c {
+        padding-left: 15px;
+        padding-right: 15px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .section-products-c .list-products-c {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .section-products-c .product-link {
+        width: 32%;
+        margin-bottom: 30px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .section-products-c .product-c {
+        background-color: #fff;
+        border-radius: 2px;
+        overflow: hidden;
+        transition: box-shadow 0.2s linear;
+    }
+    .section-products-c .product-c:hover {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+    .section-products-c .product-c .top-c {
+        position: relative;
+        overflow: hidden;
+    }
+    .section-products-c .product-c .top-c::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.2s linear;
+    }
+    .section-products-c .product-c:hover .top-c::before {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    .section-products-c .product-c .img-product-c {
+        max-width: 100%;
+        display: block;
+        transition: transform 0.2s ease-in;
+    }
+    .section-products-c .product-c:hover .img-product-c {
+        transform: scale(1.2) translateX(15px);
+    }
+
+    .section-products-c .product-c .bottom-c {
+        text-align: center;
+        padding: 10px 5px;
+    }
+    .section-products-c .product-c .product-name-c {
+        font-size: 20px;
+        color: #555;
+    }
+    .section-products-c .product-c .product-price-c {
+        margin-top: 7px;
+    }
+    .section-products-c .product-c .product-price-c span {
+        font-size: 16px;
+    }
+
+    @*@media only screen and (max-width: 400px) {
+        .section-products-c {
+            height: auto;
+        }
+        .section-products-c .container-c {
+            max-width: 300px;
+        }
+        .section-products-c .list-products-c {
+            display: block;
+        }
+        .section-products-c .list-products-c .product-link {
+            width: 100%;
+        }
+    }*@
+</style>

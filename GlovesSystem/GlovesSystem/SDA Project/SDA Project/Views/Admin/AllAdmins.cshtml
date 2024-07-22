@@ -1,0 +1,50 @@
+﻿@model List<SDA_Project.Models.Admin>
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "AdminDashboard";
+}
+@Html.Raw(TempData["Message"])
+
+<div class="container">
+    <!-- row -->
+    <div class="row tm-content-row">
+
+        <div class="col-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                <h2 class="tm-block-title">Admins List</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ADMIN ID</th>
+                            <th scope="col">ADMIN NAME</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">PHONE</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var a in Model)
+                            {
+                                <tr>
+                                    <th scope="row"><b>@a.adminId</b></th>
+                                    <td>@a.adminName</td>
+                                    <td>@a.loginEmail</td>
+                                    <td>@a.adminPhone</td>
+                                    <td class="text-center">
+                                        <a href="@Url.Action("DeleteAdmin","Admin",new {id = a.adminId})">
+                                            <i class="fa-solid fa-trash text-white"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

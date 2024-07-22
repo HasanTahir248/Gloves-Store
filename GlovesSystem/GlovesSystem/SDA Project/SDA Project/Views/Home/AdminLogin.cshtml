@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AdminLogin";
+}
+@Html.Raw(TempData["Message"])
+<h2>AdminLogin</h2>
+@using (Html.BeginForm("AdminLogin", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form>
+        <div id="div1">
+            <label id="label">USER ID:</label>
+            <input class="textfield" type="text" name="loginEmail"
+                   placeholder="Enter User ID:"><br><br>
+            <label id="label">PASSWORD:</label>
+            <input class="textfield" type="password" name="adminPassword"
+                   placeholder="Enter Password:"><br><br><br>
+            <button id="button" type="submit">Login</button>
+        </div>
+    </form>
+}
+
+

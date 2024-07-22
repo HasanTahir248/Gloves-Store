@@ -1,0 +1,91 @@
+﻿@model SDA_Project.Models.CategoriesAndProductsComposite
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "Products";
+}
+@Html.Raw(TempData["Message"])
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-products">
+                <div class="tm-product-table-container">
+                    <table class="table table-hover tm-table-small tm-product-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Article No.</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.pList != null)
+                            {
+                                foreach (var a in Model.pList)
+                                {
+                            <tr>
+                                <td class="tm-product-name">@a.ArticleNo</td>
+                                <td>@a.ProductName</td>
+                                <td>@a.CategoryName</td>
+                                <td>@a.ProductPrice</td>
+                                <td>
+                                    <img src="~/Images/@a.ImageURL" width="60" height="60"/>
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DeleteProduct","Admin",new {id = a.ProductID})" class="tm-product-delete-link">
+                                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- table container -->
+                <a href="@Url.Action("AddProducts","Admin")"
+                   class="btn btn-primary btn-block text-uppercase mb-3 w-100" >Add New Product</a>
+                
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+                <h2 class="tm-block-title">Product Categories</h2>
+                <div class="tm-product-table-container">
+                    <table class="table tm-table-small tm-product-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.cList != null)
+                            {
+                                foreach (var c in Model.cList)
+                                {
+                                    <tr>
+                                        <td class="tm-product-name">@c.CategoryName</td>
+                                        <td>
+                                            <img src="~/Images/@c.CategoryImage" width="60" height="60" />
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="@Url.Action("DeleteCategories", "Admin", new {id = c.CategoryID })" class="tm-product-delete-link">
+                                                <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- table container -->
+                <a href="@Url.Action("AddCategories","Admin")"
+                   class="btn btn-primary btn-block text-uppercase mb-3 w-100">Add New Category</a>
+                
+            </div>
+        </div>
+    </div>
+</div>

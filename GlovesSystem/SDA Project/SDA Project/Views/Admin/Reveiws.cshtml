@@ -1,0 +1,52 @@
+﻿@model List<SDA_Project.Models.Review>
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "AdminDashboard";
+}
+@Html.Raw(TempData["Message"])
+
+<div class="container">
+    <!-- row -->
+    <div class="row tm-content-row">
+
+        <div class="col-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                <h2 class="tm-block-title">Reviews List</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">REVIEW ID</th>
+                            <th scope="col">FIRST NAME</th>
+                            <th scope="col">LAST NAME</th>
+                            <th scope="col">CATEGORY ID</th>
+                            <th scope="col">PRODUCT NAME</th>
+                            <th scope="col">REVIEW TEXT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var a in Model)
+                            {
+                                <tr>
+                                    <th scope="row"><b>@a.ReviewID</b></th>
+                                    <td>@a.FirstName</td>
+                                    <td>@a.LastName</td>
+                                    <td>@a.CategoryId</td>
+                                    <td>@a.ProductName</td>
+                                    <td>@a.ReviewText</td>
+                                    <td>
+                                        <a href="@Url.Action("DeleteReview","Admin",new {id = a.ReviewID})" class="tm-product-delete-link">
+                                            <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

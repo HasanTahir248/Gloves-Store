@@ -1,0 +1,43 @@
+﻿@model List<SDA_Project.Models.OrderAndProducts>
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    ViewBag.Title = "AdminDashboard";
+}
+@Html.Raw(TempData["Message"])
+
+<div class="container">
+    <!-- row -->
+    <div class="row tm-content-row">
+
+        <div class="col-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                <h2 class="tm-block-title">Order Products</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">PRODUCT ID</th>
+                            <th scope="col">PRODUCT NAME</th>
+                            <th scope="col">PRODUCT PRICE</th>
+                            <th scope="col">QUANTITY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var a in Model)
+                            {
+                                <tr>
+                                    <th scope="row"><b>@a.ProductID</b></th>
+                                    <td>@a.ProductName</td>
+                                    <td>@a.ProductPrice</td>
+                                    <td>@a.Quantity</td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

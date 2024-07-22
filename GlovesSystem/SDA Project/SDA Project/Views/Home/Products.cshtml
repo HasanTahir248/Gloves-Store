@@ -1,0 +1,128 @@
+﻿@model List<SDA_Project.Models.Products>
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="spinner-wrapper" id="loading">
+    <div class="spinner"></div>
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-4 grid-x-wrapper">
+        @if (Model != null)
+        {
+            foreach (var a in Model)
+            {
+
+                @*@Html.BeginForm("Productstocart", "Home",FormMethod.Post){*@
+                    @*@Html.AntiForgeryToken()*@
+                <div class="product-box column">
+                    @*<a href="" class="product-item">*@
+                        <div class="product-item-image">
+                            <img src="~/Images/@a.ImageURL" alt="Stadium Full Exterior">
+                            <div class="product-item-image-hover">
+                            </div>
+                        </div>
+                        <div class="product-item-content">
+                            <div class="product-item-category">
+                                @a.ArticleNo
+                            </div>
+                            <div class="product-item-title">
+                                @a.ProductName
+                            </div>
+                            <div class="product-item-category">
+                                @a.ProductDescription
+                            </div>
+                            <div class="product-item-price">
+                                $@a.ProductPrice
+                            </div>
+                            <div>
+                                <label for="quantity_@a.ProductID">Quantity:</label>
+                                @*<input type="number" id="quantity_@a.ProductID" name="singleProd.Quantity" min="1" />
+            <input type="number" name="singleProd.ProductID" value="@a.ProductID" hidden />
+            <input type="text" name="singleProd.ProductName" value="@a.ProductName" hidden />
+            <input type="number" name="singleProd.ProductPrice" value="@a.ProductPrice" hidden />
+            <input type="text" name="singleProd.ImageURL" value="@a.ImageURL" hidden />*@
+
+
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            @*<form id="addToCartForm">
+                                <input type="number" id="quantity" name="quantity" min="1" value="1" />
+                                <button type="button" id="addToCartButton" data-product-id="@a.ProductID">Add to Cart</button>
+                            </form>*@
+
+                            <form id="addToCartForm_@a.ProductID">
+                                <input type="number" id="quantity_@a.ProductID" name="quantity" min="1" value="1" />
+                                <button type="button" id="addToCartButton_@a.ProductID" data-product-id="@a.ProductID">Add to Cart</button>
+                            </form>
+
+                            @*<button class="button-pill" type="submit">
+            <span>Add to Cart</span>
+        </button>*@
+                        </div>
+                    @*</a>*@
+                </div>
+                    //}
+                }
+            }
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+
+        /* Preloader after 3second adding none class and removing preloader*/
+setTimeout(function(){
+   document.getElementById("loading").classList.add("none");
+}, 3);
+
+    document.querySelectorAll('[id^="addToCartButton_"]').forEach(button => {
+        button.addEventListener('click', function() {
+            var productId = this.getAttribute('data-product-id');
+            var quantity = document.getElementById('quantity_' + productId).value;
+
+            var url = '@Url.Action("Productstocart", "Home")' + "/" + productId + "/" + quantity;
+            window.location.href = url;
+        });
+    });
+
+@*        document.getElementById("submitButton").addEventListener("click", function() {
+            var firstInputValue = document.getElementById("firstInput").value;
+            var secondInputValue = document.getElementById("secondInput").value;
+            fetch('/Index', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': '@(Antiforgery.GetTokens(HttpContext).RequestToken)'
+                },
+                body: JSON.stringify({ firstInputValue: firstInputValue, secondInputValue: secondInputValue })
+            }).then(response => response.json())
+              .then(data => {
+                  console.log("Success:", data);
+              }).catch((error) => {
+                  console.error("Error:", error);
+              });
+        });
+
+    *@
+
+</script>

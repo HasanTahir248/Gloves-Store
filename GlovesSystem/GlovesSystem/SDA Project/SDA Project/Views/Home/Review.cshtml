@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Review";
+}
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("Review", "Home", FormMethod.Post, new { id = "reviewForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Review Section -->
+    <section class="about_section layout_padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="img_container">
+                        <div class="img-box b1">
+                            <img src="~/Images/10.png" alt="">
+                        </div>
+                        <div class="img-box b2">
+                            <img src="~/Images/gloves.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>Review</h2>
+                        </div>
+                        <p>Please enter your Reviews about our products and services</p>
+
+                        <div class="form01">
+                            <div class="fields fields--2">
+                                <label class="field">
+                                    <span class="field__label" for="review_firstname">First name</span>
+                                    <input class="field__input" type="text" name="FirstName" id="review_firstname" />
+                                </label>
+                                <label class="field">
+                                    <span class="field__label" for="review_lastname">Last name</span>
+                                    <input class="field__input" type="text" name="LastName" id="review_lastname" />
+                                </label>
+                            </div>
+                            <div class="fields fields--2">
+                                <label class="field">
+                                    <span class="field__label" for="email">Email</span>
+                                    <input class="field__input" type="text" name="Email" id="email" />
+                                </label>
+                                <label class="field">
+                                    <span class="field__label" for="contact_no">Contact Number</span>
+                                    <input class="field__input" type="text" name="ContactNo" id="contact_no" />
+                                </label>
+                            </div>
+                            <div class="fields fields--2">
+                                <label class="field">
+                                    <span class="field__label" for="Category">Category</span>
+                                    <select id="Category" name="CategoryId" class="field__input">
+                                        <option value="">Select Category</option>
+                                        @if (ViewBag.Categories != null)
+                                        {
+                                            foreach (var category in ViewBag.Categories)
+                                            {
+                                                <option value="@category.Value">@category.Text</option>
+                                            }
+                                        }
+                                    </select>
+                                </label>
+                                 <label class="field">
+                                    <span class="field__label" for="Products">Products</span>
+                                    <select id="Products" name="ProductId" class="field__input">
+                                        <option value="">Select Product</option>
+                                        @if (ViewBag.Products != null)
+                                        {
+                                            foreach (var product in ViewBag.Products)
+                                            {
+                                                <option value="@product.Value">@product.Text</option>
+                                            }
+                                        }
+                                    </select>
+                                </label>
+                                @*<label class="field">
+                                        <span class="field__label" for="Products">Products</span>
+                                        <select id="Products" name="ProductId" class="field__input">
+                                            <option value="">Select Product</option>
+                                        </select>
+                                    </label>*@
+                            </div>
+                            <label class="field">
+                                <span class="field__label" for="Review">Reviews</span>
+                                <input class="field__input" type="text" name="ReviewText" id="review" />
+                            </label>
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+    $('#Category').change(function () {
+        var categoryId = $(this).val();
+        if (categoryId) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetProducts", "Home")',
+                data: { categoryId: categoryId },
+                success: function (data) {
+                    var productDropdown = $('#Products');
+                    productDropdown.empty();
+                    productDropdown.append($('<option>').text('Select Product').attr('value', ''));
+                    $.each(data, function (i, product) {
+                        productDropdown.append($('<option>').text(product.ProductName).attr('value', product.ProductID));
+                    });
+                },
+                error: function (xhr, status, error) {
+                    alert("Error: " + error);
+                }
+            });
+        } else {
+            $('#Products').empty();
+            $('#Products').append($('<option>').text('Select Product').attr('value', ''));
+        }
+    });
+
+    $('#reviewForm').submit(function (event) {
+        var isValid = true;
+        $('#reviewForm input[type="text"], #reviewForm select').each(function () {
+            if ($(this).val() === '') {
+                isValid = false;
+                return false; // Break out of the loop
+            }
+        });
+
+        if (!isValid) {
+            alert("Please fill in all the entries.");
+            event.preventDefault();
+            return false;
+        }
+    });
+});
+
+    </script>
+}

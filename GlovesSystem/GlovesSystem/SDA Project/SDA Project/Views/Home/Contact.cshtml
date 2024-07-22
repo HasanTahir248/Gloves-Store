@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+}
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Contact Us
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container">
+                        <form action="">
+                            <div>
+                                <input type="text" placeholder="Your Name" name = "ContactName" />
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Phone Number"  name="PhoneNumber" />
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email" name="ContactEmail"/>
+                            </div>
+                            <div>
+                                <input type="text" class="message-box" placeholder="Message" name="ContactMessage"/>
+                            </div>
+                            <div class="btn_box" >
+                                <button type="submit">
+                                    SEND
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="map_container">
+                        <div class="map">
+                            <div id="googleMap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end contact section -->
+}

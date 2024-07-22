@@ -1,0 +1,95 @@
+/*
+  =====================================
+  Define some global CSS custom props
+  =====================================
+*/
+:root {
+  --fg-color: #8019c8;
+  --bg-color: cornsilk;
+}
+
+/*
+  =====================================
+  Reset and layout stuff
+  (mostly unrelated to demo)
+  =====================================
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  color: var(--fg-color);
+  background-color: var(--bg-color);
+  font-family: sans-serif;
+}
+
+/*
+  =====================================
+  Container styles
+  =====================================
+*/
+.container {
+  padding: 2rem;
+  text-align: center;
+  width: 50%;
+}
+
+.container--inverted {
+  --fg-color: cornsilk;
+  --bg-color: #8019c8;
+  
+  color: var(--fg-color);
+  background-color: var(--bg-color);
+}
+
+/*
+  =====================================
+  Link styles
+  =====================================
+*/
+a {
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--bg-color);
+}
+
+a:hover,
+a:focus {
+  color: var(--bg-color);
+  background-color: var(--fg-color);
+}
+
+a:active {
+  color: var(--bg-color);
+  background-color: var(--fg-color);
+}
+
+/*
+  =====================================
+  Button styles
+  =====================================
+*/
+button {
+  padding: 0.5rem 2rem;
+  border: 0.2rem solid var(--fg-color);
+  border-radius: 0.5rem;
+  
+  font-size: inherit;
+  color: var(--bg-color);
+  background-color: var(--fg-color);
+}
+
+button:active {
+  color: inherit;
+  background-color: inherit;
+}

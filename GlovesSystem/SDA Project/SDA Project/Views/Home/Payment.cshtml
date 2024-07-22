@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+}
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("Payment", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Payment section-->
+
+<div class="credit-card-form01">
+    &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp;
+    <h2>Credit Card Payment</h2>
+    <form>
+        <div class="form-group01">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="Card number" name="CardNumber">
+            <label name="error" id="error"></label>
+        </div>
+        <div class="form-group01">
+            <label for="card-holder">Card Holder</label>
+            <input type="text" id="card-holder" placeholder="Card holder's name" name="OwnerName">
+        </div>
+        <div class="form-row01">
+            <div class="form-group01 form-column01">
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" name="ExpiryDate">
+            </div>
+            <div class="form-group01 form-column01">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="CVV" name="CVV">
+            </div>
+        </div>
+        &nbsp;
+        <button type="submit" class="click-button01">Pay Now</button>
+    </form>
+    &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp;
+</div>
+    
+}

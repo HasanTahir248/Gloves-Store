@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Quicksand&family=Ubuntu:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.my-container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: #2a2185;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+}
+.navigation.active{
+     width: 70px;
+}
+.navigation .ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    padding-left: 4px;
+}
+.navigation .ul.for-adjustment{
+    padding-left: 4px;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    display: block;
+    margin-top: 32px;
+}
+.navigation ul li a{
+    position: relative;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 8px 12px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li a span{
+    z-index: 100;
+    font-size: 1.9rem;
+    padding-right: 30px;
+}
+.logo-li{
+    margin-bottom: 50px;
+}
+.no-hover:hover{
+    background: #2a2185 !important;
+    color: #fff !important;
+}
+.navigation ul li:hover:nth-child(1) a::before{
+    display: none;
+}
+.navigation ul li:hover:nth-child(1) a::after{
+    display: none;
+}
+.brand-logo{
+    font-size: 2.5rem;
+}
+.navigation ul li a:hover{
+    background: white;
+    color: #2a2185;
+}
+.navigation ul li:hover a::before{
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 35px 35px 0px 10px #fff;
+}
+.navigation ul li:hover a::after{
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 35px -35px 0px 10px #fff;
+}
+/* =============Main-Css=============== */
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    top: 0;
+    min-height: 100vh;
+    transition: 0.2s ease-in-out;
+}
+.main.active{
+    width: calc(100% - 70px);
+    left: 70px;
+}
+.top-bar{
+    width: 100%;
+    height: 65px;
+    padding: 15px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle{
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    width: 400px;
+    height: 42px;
+    border: 1px solid #353e42;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 0 13px;
+}
+.search input{
+    position: absolute;
+    padding: 6px 45px;
+    font-size: 20px;
+    border: none;
+}
+.search label{
+    position: absolute;
+    top: 16%;
+    left: 10px;
+    font-size: 19px;
+    color: #656b6d;
+}
+.user{
+    position: relative;
+    width: 40px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* margin-right: 5px; */
+    cursor: pointer;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ================Cards-Section=============== */
+.cards-holder{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    padding: 20px;
+}
+.cards-holder .card{
+    position: relative;
+    border-radius: 20px;
+    padding: 18px;
+    display: grid;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card:hover{
+    background: #2a2185;
+    color: #f5f5f5;
+}
+.card .number{
+    color: #2a2185;
+    font-weight: 600;
+}
+.card:hover .number{
+    color: #f5f5f5 !important;
+}
+.card .icons{
+    font-size: 30px;
+}
+.card .card-title{
+    margin-top: 4px;
+    color: #656b6d;
+}
+.card:hover .card-title{
+    color: #f5f5f5;
+}
+/* ===============Details-Section============== */
+.details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+}
+.orders-area{
+    width: 100%;
+    display: grid;
+    border-radius: 14px;
+    padding: 15px 15px 0px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.order-title{
+    color: #2a2185;
+}
+.order-btn{
+    background: #2a2185;
+    color: #fff;
+}
+/* =============Clients-Area============ */
+.clients{
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    border-radius: 14px;
+    padding: 13px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+@media only screen and (max-width:991px)
+{
+    .navigation{
+        left: -300px;
+    }
+    .navigation.active{
+        width: 300px;
+         left: 0;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    } 
+    .main.active{
+        width: 100%;
+        left: 300px;
+    }
+    .cards-holder{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media only screen and (max-width:576px)
+{
+    .details{
+        grid-template-columns: 1fr !important;
+    }
+}
+@media only screen and (max-width:480px)
+{
+    .cards-holder{
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .details{
+        grid-template-columns: 1fr !important;
+    }
+}
+

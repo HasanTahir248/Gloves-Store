@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
+    margin: 0; /* Removes default body margin */
+    background: #c0c0c0;
+    font-family: Raleway, sans-serif;
+    color: #666;
+    background-image: url('https://images.unsplash.com/photo-1483118714900-540cf339fd46?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover; /* Ensures the background image covers the whole viewport */
+    background-position: center; /* Centers the background image */
+}
+
+.login00 {
+    margin: 20px auto; /* This can be removed if using flexbox centering */
+    padding: 40px 50px;
+    max-width: 450px; /* Increased max-width to 600px */
+    width: 100%; /* Ensures the form takes the full width up to the max-width */
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 1px 1px 1px #666;
+}
+
+
+    .login00 input {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        margin: 10px 0;
+        padding: 14px 12px;
+        font-size: 16px;
+        border-radius: 2px;
+        font-family: Raleway, sans-serif;
+    }
+
+        .login00 input[type=text],
+        .login00 input[type=password] {
+            border: 1px solid #c0c0c0;
+            transition: .2s;
+        }
+
+            .login00 input[type=text]:hover {
+                border-color: #8019c8;
+                outline: none;
+                transition: all .2s ease-in-out;
+            }
+
+        .login00 input[type=submit] {
+            border: none;
+            background: #8019c8;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+            margin: 20px 0px;
+        }
+
+            .login00 input[type=submit]:hover {
+                background: #8019c8;
+            }
+
+    .login00 h2 {
+        margin: 20px 0 0;
+        color: #8019c8;
+        font-size: 28px;
+    }
+
+    .login00 p {
+        margin-bottom: 40px;
+    }
+
+.links {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #c0c0c0;
+    margin-bottom: 10px;
+}
+
+    .links a {
+        display: table-cell;
+        padding-top: 10px;
+    }
+
+        .links a:first-child {
+            text-align: left;
+        }
+
+        .links a:last-child {
+            text-align: right;
+        }
+
+.login00 h2,
+.login00 p,
+.login00 a {
+    text-align: center;
+}
+
+.login00 a {
+    text-decoration: none;
+    font-size: .8em;
+}
+
+    .login00 a:visited {
+        color: inherit;
+    }
+
+    .login00 a:hover {
+        text-decoration: underline;
+    }

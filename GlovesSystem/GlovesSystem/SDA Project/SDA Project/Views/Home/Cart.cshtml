@@ -1,0 +1,69 @@
+﻿@model  SDA_Project.Models.CartProducts
+@{
+    ViewBag.Title = "Cart";
+}
+
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <div class="wrap">
+                <header class="cart-header cf">
+                    <strong>Items in Your Cart</strong>
+                    <a class="btn" href="@Url.Action("Categories", "Home")">Continue Shopping</a>
+                </header>
+                <div class="cart-table">
+                    <ul>
+                        @if (Model._Products != null)
+                        {
+                            foreach (var item in Model._Products)
+                            {
+                                <li class="item">
+                                    <div class="item-main cf">
+                                        <div class="item-block ib-info cf">
+                                            <img class="product-img" src="~/Images/@item.ImageURL" />
+                                            <div class="ib-info-meta">
+                                                <span class="title">@item.ProductName</span>
+                                                <span class="itemno">#@item.ProductID</span>
+                                            </div>
+                                        </div>
+                                        <div class="item-block ib-qty">
+                                            @*<input type="text" value="@item.Quantity" class="qty" readonly />*@
+                                            @*<span class="price"><span>x</span> $@item.Price</span>*@
+                                        </div>
+                                        <div class="item-block ib-total-price">
+                                            <span class="tp-price">$@item.ProductPrice</span>
+                                        </div>
+                                        <div class="item-block ib-total-price">
+                                            <span class="tp-price">
+                                                <a href="@Url.Action("DeleteCartProduct","Home",new {id = @item.ProductID})">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li>No items in your cart.</li>
+                        }
+                    </ul>
+                </div>
+                <div class="sub-table cf">
+                    <div class="summary-block">
+                        <ul>
+                            <li class="subtotal"><span class="sb-label" >Subtotal</span><span class="sb-value">@Model.totalPrice</span></li>
+                            @*<li class="shipping"><span class="sb-label">Shipping</span><span class="sb-value">n/a</span></li>*@
+                            <li class="tax"><span class="sb-label">Est. Tax</span><span class="sb-value">5.00</span></li>
+                            <li class="grand-total"><span class="sb-label">Total</span><span class="sb-value">@(Model.totalPrice + 5)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cart-footer cf">
+                    <a class="btn" href="@Url.Action("Shipping", "Home")">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

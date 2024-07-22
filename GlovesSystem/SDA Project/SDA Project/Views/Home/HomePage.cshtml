@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+    ViewBag.Title = "HomePage";
+}
+@Html.Raw(TempData["Message"])
+@using (Html.BeginForm("HomePage", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <form class="login00">
+        <h2>Welcome, User!</h2>
+        <p>Please Sign Up</p>
+        <input type="text" placeholder="User Name" name="UserName" />
+        <input type="text" placeholder="Email" name="Email" />
+        <input type="text" placeholder="Contact Number" name="PhoneNumber" />
+        <input type="password" placeholder="Password" name="UserPassword" />
+        <input type="password" placeholder="Confirm Password" name="ConfirmPassword" required />
+        <input type="submit" value="Sign Up" />
+        <div class="links">
+            <a href="@Url.Action("SignIn")">Login</a>
+        </div>
+    </form>
+
+}

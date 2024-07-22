@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    @Styles.Render("~/Content/responsive.css")
+    @Styles.Render("~/Content/style.css")
+    @Styles.Render("~/Content/style.css.map")
+    @Styles.Render("~/Content/style.scss")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/cart_style.css")
+    @Styles.Render("~/Content/address.css")
+    @Styles.Render("~/Content/payment.css")
+    @Styles.Render("~/Content/HomeProducts.css")
+    @*@Styles.Render("~/Content/C_style.css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+
+
+</head>
+<body>
+    <div class="Nav_Bar">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                        <span>
+                            Gloves HUB
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="@Url.Action("Index","Home")">Home<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("About","Home")">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Categories","Home")">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Review","Home")">Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Contact","Home")">Contact Us</a>
+                            </li>
+                            <!--<li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("AdminLogin","Home")">Admin Login</a>
+                            </li>*-->
+                        </ul>
+                        <div class="user_optio_box">
+                            <a href="@Url.Action("LoginOption","Home")"><h3>👨🏻‍💼</h3></a>
+                            @*<a href="">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>*@
+                            <a href="@Url.Action("Cart","Home")">
+                                @*<i class="fa fa-shopping-cart" aria-hidden="true"></i>*@
+                                <h3>🛒</h3>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+        <!-- end header section -->
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+            <footer>
+                <section class="info_section layout_padding2">
+                    <div class="container">
+                        <div class="info_logo">
+                            <h2>
+                                Gloves HUB
+                            </h2>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="info_contact">
+                                    <h5>
+                                        About Shop
+                                    </h5>
+                                    <div>
+                                        <div class="img-box">
+                                            <img src="images/location-white.png" width="18" alt="">
+                                        </div>
+                                        <p>
+                                            Address
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <div class="img-box">
+                                            <img src="images/telephone-white.png" width="12" alt="">
+                                        </div>
+                                        <p>
+                                            +09 2047255234
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <div class="img-box">
+                                            <img src="images/envelope-white.png" width="18" alt="">
+                                        </div>
+                                        <p>
+                                            sarim@gmail.com
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="info_info">
+                                    <h5>
+                                        Informations
+                                    </h5>
+                                    <p>
+                                        for more information contact xyz@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="info_insta">
+                                    <h5>
+                                        Instagram
+                                    </h5>
+                                    <div class="insta_container">
+                                        <div class="row m-0">
+                                            <div class="col-4 px-0">
+                                                <a href="">
+                                                    <div class="insta-box b-1">
+                                                        <img src="~/Images/Bike.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 px-0">
+                                                <a href="">
+                                                    <div class="insta-box b-1">
+                                                        <img src="~/Images/Aboutshop1.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 px-0">
+                                                <a href="">
+                                                    <div class="insta-box b-1">
+                                                        <img src="~/Images/leather1.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 px-0">
+                                                <a href="">
+                                                    <div class="insta-box b-1">
+                                                        <img src="~/Images/Kitchen1.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 px-0">
+                                                <a href="">
+                                                    <div class="insta-box b-1">
+                                                        <img src="~/Images/Sports.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 px-0">
+                                                <a href="">
+                                                    <div class="insta-box b-1">
+                                                        <img src="~/Images/gloves3.png" alt="">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="info_form ">
+                                    <h5>
+                                        Newsletter
+                                    </h5>
+                                    <form action="">
+                                        <input type="email" placeholder="Enter your email">
+                                        <button>
+                                            Subscribe
+                                        </button>
+                                    </form>
+                                    <div class="social_box">
+                                        <a href="">
+                                            <img src="images/fb.png" alt="">
+                                        </a>
+                                        <a href="">
+                                            <img src="images/twitter.png" alt="">
+                                        </a>
+                                        <a href="">
+                                            <img src="images/linkedin.png" alt="">
+                                        </a>
+                                        <a href="">
+                                            <img src="images/youtube.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
